@@ -1,10 +1,22 @@
 import React, { Component} from "react";
 
 class Button extends Component{
+
+  constructor(props)
+  {
+    super(props);
+    console.log(props);
+  }
+
+  handleClick()
+  {
+    this.props.toggleButton();
+  }
+
   render(){
     return(
       <div className="Button">
-        <button>{this.props.label}</button>
+        <button onClick = {()=>this.handleClick()} >{this.props.label}</button>
       </div>
     );
   }
