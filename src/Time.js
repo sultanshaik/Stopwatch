@@ -9,7 +9,6 @@ class Time extends Component{
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    debugger;
      if(nextProps.start !== prevState.start) {
        return {
         start: nextProps.start
@@ -18,19 +17,17 @@ class Time extends Component{
      return null;
    }
   componentDidUpdate(_, prevState){
-     debugger;
-      if(prevState.start !== this.state.start) {
+      if(prevState.start !== this.state.start){
         this.startOrStopTimer();
       }
     }
 
   startOrStopTimer()
   {
-    debugger;
     if(this.state.start)
     {
       setInterval(
-        this.incrementCounter()
+        () =>this.incrementCounter()
       ,1000)
     }
   }
