@@ -11,18 +11,18 @@ class App extends Component{
     this.state = {start : false , reset : false}
   }
 
-  toggleStart()
+  setStart()
   {
     this.setState({start : true});
-    this.toggleReset();
+    this.setReset();
   }
 
-  toggleStop()
+  setStop()
   {
     this.state.start ? this.setState({start : false}) : this.setState({reset : true});
   }
 
-  toggleReset()
+  setReset()
   {
     this.state.reset ? this.setState({reset : false}) : null;
   }
@@ -32,8 +32,8 @@ class App extends Component{
       <div className="App">
         <span className="semicolon"><Time start = {this.state.start} reset = {this.state.reset}/></span>
         <div>
-        <Button action = {this.state.start} toggleButton = {()=>this.toggleStop()} label = {this.state.start ? "Stop" : "Reset"} />
-        <Button action = {this.state.start} toggleButton = {()=>this.toggleStart()} label  = "Start"/>
+        <Button action = {this.state.start} toggleButton = {()=>this.setStop()} label = {this.state.start ? "Stop" : "Reset"} />
+        <Button action = {this.state.start} toggleButton = {()=>this.setStart()} label  = "Start"/>
         </div>
       </div>
     );
