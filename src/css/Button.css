@@ -1,0 +1,27 @@
+.Button-Outer{
+    border-radius: 50%;
+}
+
+.Button{
+
+  text-align: center;
+  font-size: 20px;
+  padding :  40px;
+  border: solid black 3px;
+  border-radius: 50%;
+}
+
+.Button-Start {
+  color:#397C3D;
+  background-color: #19351E;
+}
+
+.Button-Stop {
+  color: #ffff38;
+  background-color: #dd4242;
+}
+
+.Button-Reset{
+  color: #343435;
+  background-color: #141414;
+}

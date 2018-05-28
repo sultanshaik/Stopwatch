@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import "./App.css";
+import "./css/App.css";
 import Button from "./Button.js";
 import Time from "./Time.js";
 
@@ -31,9 +31,9 @@ class App extends Component{
     return(
       <div className="App">
         <span className="semicolon"><Time start = {this.state.start} reset = {this.state.reset}/></span>
-        <div>
-        <Button action = {this.state.start} toggleButton = {()=>this.setStop()} label = {this.state.start ? "Stop" : "Reset"} />
-        <Button action = {this.state.start} toggleButton = {()=>this.setStart()} label  = "Start"/>
+        <div className = "Buttons">
+        <Button  action = {this.state.start} toggleButton = {()=>this.setStop()} label = {this.state.start ? "Stop" : "Reset"} />
+        <Button  action = {this.state.start} toggleButton = {()=>this.setStart()} label  = "Start"/>
         </div>
       </div>
     );

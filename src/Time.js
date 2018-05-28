@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-
+import "./css/Time.css"
 class Time extends Component{
 
   constructor(props)
@@ -77,7 +77,7 @@ class Time extends Component{
 
   render(){
     return(
-      <div >
+      <div className = "Time">
       {this.getHours()}:{this.getMinutes()}:{this.getSeconds()}
       </div>
     );
