@@ -5,7 +5,7 @@ class Time extends Component{
   constructor(props)
   {
     super(props);
-    this.state = {hours : 0 , minutes: 0 ,seconds: 0 , start : this.props.start , reset : this.props.reset }
+    this.state = {seconds: 0 , start : this.props.start , reset : this.props.reset }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -51,7 +51,7 @@ class Time extends Component{
   {
     if(this.state.reset)
       {
-        this.setState({hours : 0 , minutes: 0 ,seconds: 0});
+        this.setState({seconds: 0});
       }
   }
 
@@ -67,12 +67,12 @@ class Time extends Component{
 
   getMinutes()
   {
-      return ('0'+(this.state.minutes%60)).slice(-2);
+      return ('0'+( Math.floor(this.state.seconds/60)%60)).slice(-2);
   }
 
   getHours()
   {
-      return ('0'+(this.state.hours%12)).slice(-2);
+      return ('0'+( Math.floor(this.state.seconds/3600))).slice(-2);
   }
 
   render(){
