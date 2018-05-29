@@ -1,14 +1,15 @@
 .Button-Outer{
-    border-radius: 50%;
+  border-radius: 1px;
 }
 
 .Button{
-
+  outline: none;
   text-align: center;
   font-size: 20px;
-  padding :  40px;
   border: solid black 3px;
   border-radius: 50%;
+  height: 125px;
+  width: 125px;
 }
 
 .Button-Start {
