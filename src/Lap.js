@@ -1,11 +1,12 @@
 import React, { Component} from "react";
+import "./css/Lap.css"
 
 class Lap extends Component{
 
   render(){
     return(
-      <div>
-
+      <div className = "Lap">
+        {this.props.seconds}
       </div>
     );
   }

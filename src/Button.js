@@ -10,7 +10,7 @@ class Button extends Component{
 
   handleClick()
   {
-    this.props.toggleButton();
+    this.props.clickButton();
   }
 
   render(){
@@ -19,9 +19,9 @@ class Button extends Component{
     {
       className += " Button-Start";
     }
-    if(this.props.label==="Reset")
+    if(this.props.label==="Lap")
     {
-      className += " Button-Reset"
+      className += " Button-Lap"
     }
     if(this.props.label==="Stop")
     {

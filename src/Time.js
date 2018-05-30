@@ -5,7 +5,7 @@ class Time extends Component{
   constructor(props)
   {
     super(props);
-    this.state = {seconds: 0 , start : this.props.start , reset : this.props.reset }
+    this.state = {seconds: 0 , start : this.props.start, lap : this.props.lap ,previousTime:0  }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -14,10 +14,10 @@ class Time extends Component{
         start: nextProps.start
        };
      }
-     if(nextProps.reset !== prevState.reset)
+     if(nextProps.lap !== prevState.lap)
      {
        return {
-        reset: nextProps.reset
+        lap: nextProps.lap
        };
      }
      return null;
@@ -27,8 +27,8 @@ class Time extends Component{
         this.startOrStopTimer();
       }
 
-      if(prevState.reset !== this.state.reset){
-        this.resetTimer();
+      if(prevState.lap !== this.state.lap){
+        this.state.lap? this.lapTime():null;
       }
 
     }
@@ -47,12 +47,12 @@ class Time extends Component{
     }
   }
 
-  resetTimer()
+  lapTime()
   {
-    if(this.state.reset)
-      {
-        this.setState({seconds: 0});
-      }
+    let seconds = this.state.seconds-this.state.previousTime;
+    let lapTime = this.getHours(seconds)+":"+this.getMinutes(seconds)+":"+this.getSeconds(seconds);
+    this.props.addLapTime(lapTime);
+    this.setState({previousTime : this.state.seconds});
   }
 
   incrementCounter()
@@ -60,25 +60,25 @@ class Time extends Component{
     this.setState({seconds : (this.state.seconds +1)});
   }
 
-  getSeconds()
+  getSeconds(seconds)
   {
-      return ('0'+(this.state.seconds%60)).slice(-2);
+      return ('0'+(seconds%60)).slice(-2);
   }
 
-  getMinutes()
+  getMinutes(seconds)
   {
-      return ('0'+( Math.floor(this.state.seconds/60)%60)).slice(-2);
+      return ('0'+( Math.floor(seconds/60)%60)).slice(-2);
   }
 
-  getHours()
+  getHours(seconds)
   {
-      return ('0'+( Math.floor(this.state.seconds/3600))).slice(-2);
+      return ('0'+( Math.floor(seconds/3600))).slice(-2);
   }
 
   render(){
     return(
       <div className = "Time">
-      {this.getHours()}:{this.getMinutes()}:{this.getSeconds()}
+      {this.getHours(this.state.seconds)}:{this.getMinutes(this.state.seconds)}:{this.getSeconds(this.state.seconds)}
       </div>
     );
   }
