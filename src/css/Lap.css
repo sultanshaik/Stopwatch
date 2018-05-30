@@ -1,0 +1,9 @@
+.Laps{
+  overflow:auto;
+  height:150px;
+}
+.Lap{
+  font-size: 30px;
+  text-align: center;
+  color:white;
+}
